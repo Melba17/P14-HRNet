@@ -1,0 +1,52 @@
+/* Réglages globaux */
+body {
+  background-color: #f1f5f9;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Titres principaux */
+h1 {
+  text-align: center;
+  color: #2d3748;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Lien commun */
+.link-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #3b82f6;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.link:hover {
+  color: #1d4ed8;
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+  background-color: #1d4ed8;
+}

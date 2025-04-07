@@ -1,0 +1,77 @@
+/* Conteneur principal */
+.notfound-container {
+    max-width: 700px;
+    margin: 5rem auto;
+    padding: 3rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  
+  /* Titre d'erreur */
+  .notfound-container h1 {
+    font-size: 5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    color: #1d4ed8;
+  }
+  
+  /* Message explicatif */
+  .notfound-container .notfound-message {
+    font-size: 1.25rem;
+    color: #4a5568;
+    margin-bottom: 2rem;
+  }
+  
+  /* Zone de lien de retour */
+  .notfound-container .notfound-link-wrapper {
+    text-align: center;
+  }
+  
+  /* Lien stylisé */
+  .notfound-container .notfound-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .notfound-container .notfound-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #3b82f6;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .notfound-container .notfound-link:hover {
+    color: #1d4ed8;
+  }
+  
+  .notfound-container .notfound-link:hover::after {
+    transform: scaleX(1);
+    background-color: #1d4ed8;
+  }
+  
+  /* Responsive pour petits écrans */
+@media screen and (max-width: 600px) {
+  .notfound-container {
+      padding: 2rem 1rem;
+      margin: 3rem 1rem;
+  }
+
+  .notfound-container h1 {
+      font-size: 3.5rem;
+  }
+
+  .notfound-container .notfound-message {
+      font-size: 1rem;
+  }
+}

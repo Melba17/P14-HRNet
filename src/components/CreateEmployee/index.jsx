@@ -105,9 +105,17 @@ function CreateEmployee() {
       </form>
 
       {showModal && (
-        <div className="modal">
-          <p>Employee Created!</p>
-          <button onClick={() => setShowModal(false)}>Close</button>
+        <div
+          className="modal"
+          role="alertdialog"
+          aria-labelledby="modal-title"
+          aria-describedby="modal-desc"
+        >
+          <p id="modal-title">Employee Created!</p>
+          <p id="modal-desc">The new employee was successfully added to the list.</p>
+          <button onClick={() => setShowModal(false)} aria-label="Close success message">
+            Close
+          </button>
         </div>
       )}
     </div>
