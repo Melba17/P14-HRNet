@@ -1,0 +1,45 @@
+/* Conteneur de la liste */
+.list-container {
+  max-width: 1250px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive pour le conteneur uniquement */
+@media screen and (max-width: 600px) {
+  .list-container {
+    padding: 1rem;
+    margin: 1.5rem auto;
+  }
+}
+
+ /* Barre de recherche */
+ .search-bar {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 1.5rem auto;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  height: 2.5rem;
+  font-size: 0.95rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  background-color: #f7fafc;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #1d4ed8;
+  background-color: #ffffff;
+}
+
+@media screen and (max-width: 600px) {
+  .search-bar {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+}

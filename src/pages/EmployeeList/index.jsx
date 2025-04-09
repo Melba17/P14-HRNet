@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import DataTable from 'react-data-table-component';
+import CustomDataTable from '../../components/CustomDataTable';
 import './style.css';
 
 function EmployeeList() {
@@ -48,14 +48,10 @@ function EmployeeList() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <DataTable
+
+          <CustomDataTable
             columns={columns}
             data={filteredEmployees}
-            pagination
-            highlightOnHover
-            responsive
-            striped
-            noDataComponent={<p className="no-data">No employees found.</p>}
           />
         </>
       ) : (

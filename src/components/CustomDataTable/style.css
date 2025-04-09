@@ -1,0 +1,133 @@
+/* Message en l'absence de données */
+.no-data {
+    text-align: center;
+    color: #4a5568;
+    margin-top: 2rem;
+    font-size: 1rem;
+  }
+  
+  /* Table react-data-table-component */
+  .rdt_Table {
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+  }
+  
+  /* Colonnes / Cellules */
+  .rdt_TableCol {
+    white-space: nowrap;
+    font-size: 0.95rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .rdt_TableCell {
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    line-height: 1.4;
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .rdt_TableCell > div {
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  /* Largeur minimale des colonnes */
+  .rdt_TableCol:nth-child(1),
+  .rdt_TableCell:nth-child(1) { min-width: 150px; }
+  
+  .rdt_TableCol:nth-child(2),
+  .rdt_TableCell:nth-child(2) { min-width: 150px; }
+  
+  .rdt_TableCol:nth-child(3),
+  .rdt_TableCell:nth-child(3) { min-width: 120px; }
+  
+  .rdt_TableCol:nth-child(4),
+  .rdt_TableCell:nth-child(4) { min-width: 160px; }
+  
+  .rdt_TableCol:nth-child(5),
+  .rdt_TableCell:nth-child(5) { min-width: 140px; }
+  
+  .rdt_TableCol:nth-child(6),
+  .rdt_TableCell:nth-child(6) { min-width: 160px; }
+  
+  .rdt_TableCol:nth-child(7),
+  .rdt_TableCell:nth-child(7) { min-width: 120px; }
+  
+  .rdt_TableCol:nth-child(8),
+  .rdt_TableCell:nth-child(8) { min-width: 100px; }
+  
+  .rdt_TableCol:nth-child(9),
+  .rdt_TableCell:nth-child(9) { min-width: 100px; }
+  
+  /* En-têtes triables au survol */
+  .rdt_TableCol:hover {
+    color: #1d4ed8;
+    background-color: #e0e7ff;
+    cursor: pointer;
+  }
+  
+  /* En-tête du tableau */
+  .rdt_TableHeadRow {
+    background-color: #e7effb !important;
+    color: #1e293b;
+    font-weight: 600;
+  }
+  
+  /* Lignes du tableau */
+  .rdt_TableRow {
+    background-color: #f9fafb;
+    border-bottom: 1px solid #e2e8f0;
+    min-height: 52px;
+  }
+  
+  .rdt_TableRow:hover {
+    background-color: #495eab !important;
+    color: #ffffff !important;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Coins arrondis pour la dernière ligne */
+  .rdt_TableRow:last-child .rdt_TableCell:first-child {
+    border-bottom-left-radius: 12px;
+  }
+  
+  .rdt_TableRow:last-child .rdt_TableCell:last-child {
+    border-bottom-right-radius: 12px;
+  }
+  
+  /* Pagination */
+  .rdt_Pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 0.95rem;
+    color: #4a5568;
+  }
+  
+  .rdt_Pagination button {
+    transition: background-color 0.3s ease;
+  }
+  
+  .rdt_Pagination button:hover {
+    background-color: #e0e7ff;
+  }
+  
+  /* Responsive pagination */
+  @media screen and (max-width: 600px) {
+    .rdt_Pagination {
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+  }
+  

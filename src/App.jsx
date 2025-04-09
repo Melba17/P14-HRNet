@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CreateEmployee from './components/CreateEmployee';
-import EmployeeList from './components/EmployeeList';
-import NotFound from './components/NotFound';
+import CreateEmployee from './pages/CreateEmployee';
+import EmployeeList from './pages/EmployeeList';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
