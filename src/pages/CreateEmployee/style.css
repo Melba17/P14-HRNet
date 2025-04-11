@@ -1,170 +1,149 @@
 /* Conteneur du formulaire */
 .form-container {
-    max-width: 700px;
-    margin: 3rem auto;
-    padding: 2.5rem 3rem;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  }
-  
-  /* Sous-titre */
-  h2 {
-    text-align: center;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    color: #4a5568;
-  }
-  
-  /* Structure du formulaire */
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    width: 100%;
-  }
-  
-  form > div,
-  .address-group > div {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Libellés */
-  label {
-    font-weight: 500;
-    margin-bottom: -5px;
-    color: #2d3748;
-    display: block;
-  }
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2.5rem 3rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
 
-  label[for="department"] {
-    margin-top: 0.9rem;
-  }  
-  
-  /* Champs texte */
-  input {
-    width: 100%;
-    padding: 0.4rem 0.6rem;
-    font-size: 0.95rem;
-    border: 1px solid #cbd5e0;
-    border-radius: 6px;
-    background-color: #f7fafc;
-    height: 2.5rem;
-    box-sizing: border-box;
-  }
+/* Titre */
+h2 {
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #4a5568;
+}
 
-  /***** Menus déroulants ******/
-  select {
-    width: 100%;
-    padding: 0.4rem 2rem 0.4rem 0.6rem;
-    font-size: 0.95rem;
-    border: 1px solid #cbd5e0;
-    border-radius: 6px;
-    background-color: #f7fafc;
-    height: 2.5rem;
-    box-sizing: border-box;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.45rem center;
-    background-size: 1.5rem;
-    cursor: pointer;
-  }
-  
-  /* Focus sur champs */
-  input:focus,
-  select:focus {
-    outline: none;
-    border-color: #1d4ed8;
-    background-color: #fff;
-  }
-  
-  /* Bloc adresse */
-  fieldset.address {
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 1.2rem;
-    background-color: #f9fafb;
-    margin: 0;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  fieldset.address label {
-    margin-bottom: 0.35rem;
-  }
-  
-  fieldset.address legend {
-    font-weight: bold;
-    color: #2d3748;
-    padding: 0 0.5rem;
-  }
-  
-  /* Disposition des champs adresse */
+/* Structure du formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+form > div,
+.address-group > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+label {
+  font-weight: 500;
+  margin-bottom: -5px;
+  color: #2d3748;
+  display: block;
+}
+
+/* Champs texte */
+input {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.95rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  background-color: #f7fafc !important;
+  height: 2.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* Champs texte en focus */
+input:focus {
+  outline: none;
+  border: 2px solid #1d4ed8;
+  background-color: #ffffff !important;
+}
+
+/* Corrige le fond bleu de l'autofill */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #f7fafc inset !important;
+  box-shadow: 0 0 0 1000px #f7fafc inset !important;
+}
+
+/* Bloc adresse */
+fieldset.address {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.2rem;
+  background-color: #f9fafb;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+fieldset.address label {
+  margin-bottom: 0.215rem;
+}
+
+fieldset.address legend {
+  font-weight: bold;
+  color: #2d3748;
+  padding: 0 0.5rem;
+}
+
+/* Disposition adresse */
+.address-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0rem 2rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
   .address-group {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0rem 2rem;
+    grid-template-columns: 1fr;
+    gap: -1rem;
   }
-  
-  /* Responsive adresse */
-  @media (max-width: 600px) {
-    .address-group {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-  
-    select {
-      font-size: 0.80rem;
-    }
-  }
-  
-  /* Bouton valider */
-  button[type="submit"] {
-    padding: 0.55rem 1.2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    height: 2.5rem;
-    margin-top: 0.5rem;
-    width: 200px;
-    align-self: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    transition: background-color 0.3s ease;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #1e40af;
-  }
+}
 
-  .error {
-    color: red;
-    font-size: 0.8rem;
-    font-weight: 600;
-    height: 0.8rem; /* Réserve de place sans décalage */
-    margin: -5px 0 6px;
-  }
+/* Bouton */
+button[type="submit"] {
+  padding: 0.55rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  height: 2.5rem;
+  margin-top: 2rem;
+  width: 200px;
+  align-self: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease;
+}
 
-  .address-group > div .error {
-    margin-top: 2px;
-    
-  }
-  
-  /* Message de confirmation */
-  .modal {
-    margin-top: 2rem;
-    background-color: #e6fffa;
-    padding: 1.25rem;
-    border: 1px solid #38b2ac;
-    border-radius: 10px;
-    color: #234e52;
-    font-weight: 500;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
-  
+button[type="submit"]:hover {
+  background-color: #1e40af;
+}
+
+/* Messages d'erreur */
+.error {
+  color: red;
+  font-size: 0.8rem;
+  font-weight: 600;
+  height: 0.8rem;
+  margin: -5px 0 6px;
+}
+
+.address-group > div .error {
+  margin-top: 2px;
+}
+
+/* Confirmation */
+.modal {
+  margin-top: 2rem;
+  background-color: #e6fffa;
+  padding: 1.25rem;
+  border: 1px solid #38b2ac;
+  border-radius: 10px;
+  color: #234e52;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}

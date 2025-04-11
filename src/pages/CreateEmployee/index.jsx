@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { addEmployee } from '../../redux/employeeSlice';
 import states from '../../data/states';
 import CustomDatePicker from '../../components/CustomDatePicker';
+import CustomSelect from '../../components/CustomSelect';
 import './style.css';
-
 
 function CreateEmployee() {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ function CreateEmployee() {
     city: '',
     state: '',
     zipCode: '',
-    department: 'Sales',
+    department: '',
   });
 
   const [errors, setErrors] = useState({});
@@ -53,7 +53,7 @@ function CreateEmployee() {
 
     const employeeData = {
       ...form,
-      dateOfBirth: form.dateOfBirth.toISOString().split('T')[0], // Convertit un objet Date (form.dateOfBirth) en chaîne ISO (format 'YYYY-MM-DDTHH:MM:SSZ' => format standard international), puis extrait uniquement la date (avant le 'T'), sans l'heure.
+      dateOfBirth: form.dateOfBirth.toISOString().split('T')[0],
       startDate: form.startDate.toISOString().split('T')[0],
     };
 
@@ -69,10 +69,23 @@ function CreateEmployee() {
       city: '',
       state: '',
       zipCode: '',
-      department: 'Sales',
+      department: '',
     });
     setErrors({});
   };
+
+  const stateOptions = states.map((state) => ({
+    value: state.abbreviation,
+    label: state.name,
+  }));
+
+  const departmentOptions = [
+    { value: 'Sales', label: 'Sales' },
+    { value: 'Marketing', label: 'Marketing' },
+    { value: 'Engineering', label: 'Engineering' },
+    { value: 'Human Resources', label: 'Human Resources' },
+    { value: 'Legal', label: 'Legal' },
+  ];
 
   return (
     <div className="form-container">
@@ -87,7 +100,7 @@ function CreateEmployee() {
       <form onSubmit={handleSubmit} id="create-employee">
         <label htmlFor="firstName">First Name</label>
         <input type="text" id="firstName" value={form.firstName} onChange={handleChange} />
-        <p className="error">{errors.firstName || '\u00A0'}</p> {/* '\u00A0' = espace insécable : garde l'espace vide pour éviter les décalages visuels si il n'y a pas de message d'erreur à afficher */}
+        <p className="error">{errors.firstName || '\u00A0'}</p>
 
         <label htmlFor="lastName">Last Name</label>
         <input type="text" id="lastName" value={form.lastName} onChange={handleChange} />
@@ -123,15 +136,14 @@ function CreateEmployee() {
               <p className="error">{errors.city || '\u00A0'}</p>
             </div>
             <div>
-              <label htmlFor="state">State</label>
-              <select id="state" value={form.state} onChange={handleChange}>
-                <option value="">-- Choose a state --</option>
-                {states.map((state) => (
-                  <option key={state.abbreviation} value={state.abbreviation}>
-                    {state.name}
-                  </option>
-                ))}
-              </select>
+              <CustomSelect
+                id="state"
+                label="State"
+                value={form.state}
+                onChange={handleChange}
+                options={stateOptions}
+                placeholder="Choose a state"
+              />
               <p className="error">{errors.state || '\u00A0'}</p>
             </div>
             <div>
@@ -142,15 +154,14 @@ function CreateEmployee() {
           </div>
         </fieldset>
 
-        <label htmlFor="department">Department</label>
-        <select id="department" value={form.department} onChange={handleChange}>
-          <option>Sales</option>
-          <option>Marketing</option>
-          <option>Engineering</option>
-          <option>Human Resources</option>
-          <option>Legal</option>
-        </select>
-        <p className="error">{errors.department || '\u00A0'}</p>
+        <CustomSelect
+          id="department"
+          label="Department"
+          value={form.department}
+          onChange={handleChange}
+          options={departmentOptions}
+          placeholder="Choose a department"
+        />
 
         <button type="submit">Save</button>
       </form>

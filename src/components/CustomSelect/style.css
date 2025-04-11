@@ -1,0 +1,126 @@
+.custom-select-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label */
+.custom-select-container label {
+  font-weight: 500;
+  margin-bottom: 3px;
+  margin-top: 15px;
+  color: #2d3748;
+  display: block;
+}
+
+/* Apparence du champ */
+.custom-select__control {
+  height: 2.8rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e0 !important;
+  background-color: #f7fafc !important;
+  font-size: 0.95rem;
+  box-shadow: none !important;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  align-items: center;
+}
+
+/* Survol */
+.custom-select__control:hover {
+  cursor: pointer;
+}
+
+/* Focus */
+.custom-select__control--is-focused {
+  border: 2px solid #1d4ed8 !important;
+  background-color: #ffffff !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+/* Conteneur du texte */
+.custom-select__value-container {
+  padding: 0 0.6rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Texte */
+.custom-select__single-value {
+  color: #2d3748;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.5rem;
+}
+
+/* Icône flèche */
+.custom-select__dropdown-indicator {
+  padding: 0 0.5rem;
+  color: #2d3748;
+  display: flex;
+  align-items: center;
+}
+
+/* Options */
+.custom-select__option {
+  font-size: 0.95rem;
+  padding: 0.5rem;
+  color: #2d3748;
+}
+
+.custom-select__option--is-selected {
+  background-color: #1d4ed8 !important;
+  color: white;
+}
+
+/* Menu */
+.custom-select__menu {
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+  margin-top: 0px !important;
+}
+
+/* Espacement options */
+.custom-select__menu-list {
+  padding-top: 0.1rem !important;
+  padding-bottom: 0rem !important;
+}
+
+/* Suppression du séparateur */
+.custom-select__indicator-separator {
+  display: none;
+}
+
+/*** Ajuste uniquement le champ State dans le bloc Address ***/
+.address-group .custom-select-container {
+  height: 2.5rem;
+  justify-content: flex-end;
+  margin-top: 25px;
+}
+
+/* Applique les mêmes dimensions que les inputs classiques */
+.address-group .custom-select__control {
+  height: 2.5rem !important;
+  min-height: 2.5rem !important;
+  border: 1px solid #cbd5e0 !important;
+  background-color: #f7fafc !important;
+  font-size: 0.95rem !important;
+  align-items: center !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  
+}
+
+/* Aligne le texte verticalement au centre */
+.address-group .custom-select__value-container {
+  padding: 0 0.6rem !important;
+  height: 100% !important;
+  align-items: center !important;
+  display: flex !important;
+}
+
+/* Focus sur le champ State (même style que les inputs) */
+.address-group .custom-select__control--is-focused {
+  background-color: #ffffff !important;
+  border: 2px solid #1d4ed8 !important;
+}
