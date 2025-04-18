@@ -52,6 +52,11 @@
   line-height: 1.5rem;
 }
 
+.custom-select__placeholder {
+  color: #4a5568 !important; 
+  font-weight: 500 !important;
+}
+
 /* Icône flèche */
 .custom-select__dropdown-indicator {
   padding: 0 0.5rem;
@@ -95,7 +100,7 @@
 .address-group .custom-select-container {
   height: 2.5rem;
   justify-content: flex-end;
-  margin-top: 25px;
+  margin-top: 45px;
 }
 
 /* Applique les mêmes dimensions que les inputs classiques */
@@ -123,4 +128,13 @@
 .address-group .custom-select__control--is-focused {
   background-color: #ffffff !important;
   border: 2px solid #1d4ed8 !important;
+}
+
+/* Message d'erreur du composant Select */
+.custom-select-error {
+  color: red;
+  font-size: 0.8rem;
+  font-weight: 600;
+  height: 0.8rem;
+  margin: 2px 0 6px;
 }

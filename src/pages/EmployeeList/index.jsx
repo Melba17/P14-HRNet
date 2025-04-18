@@ -3,6 +3,15 @@ import { useState } from 'react';
 import CustomDataTable from '../../components/CustomDataTable';
 import './style.css';
 
+/**
+ * Page listant tous les employés enregistrés.
+ *
+ * Affiche un champ de recherche global permettant de filtrer dynamiquement les employés
+ * par n'importe quel champ (nom, département, ville, etc.).
+ * Si aucun employé n'est trouvé, un message est affiché.
+ *
+ * @component
+ */
 function EmployeeList() {
   const employees = useSelector((state) => state.employee.list);
   const [search, setSearch] = useState('');
@@ -19,34 +28,34 @@ function EmployeeList() {
     { name: 'Zip Code', selector: row => row.zipCode }
   ];
 
-  const filteredEmployees = employees.filter((emp) => {
-    const query = search.toLowerCase();
-    return (
-      emp.firstName.toLowerCase().includes(query) ||
-      emp.lastName.toLowerCase().includes(query) ||
-      emp.department.toLowerCase().includes(query) ||
-      emp.street.toLowerCase().includes(query) ||
-      emp.city.toLowerCase().includes(query) ||
-      emp.state.toLowerCase().includes(query) ||
-      emp.zipCode.toString().includes(query) ||
-      emp.dateOfBirth.includes(query) ||
-      emp.startDate.includes(query) ||
-      emp.startDate.slice(0, 4).includes(query) // année d'embauche
-    );
-  });
+  const query = search.toLowerCase();
+
+  const filteredEmployees = employees.filter((emp) =>
+    emp.firstName.toLowerCase().includes(query) ||
+    emp.lastName.toLowerCase().includes(query) ||
+    emp.department.toLowerCase().includes(query) ||
+    emp.street.toLowerCase().includes(query) ||
+    emp.city.toLowerCase().includes(query) ||
+    emp.state.toLowerCase().includes(query) ||
+    emp.zipCode.toString().includes(query) ||
+    emp.dateOfBirth.includes(query) ||
+    emp.startDate.includes(query) ||
+    emp.startDate.slice(0, 4).includes(query)
+  );
 
   return (
     <div className="list-container">
-      <h1>Current Employees</h1>
+      <h1 id="employee-list-title">Current Employees</h1>
 
       {employees.length > 0 ? (
         <>
           <input
             type="text"
-            placeholder="Search employees..."
             className="search-bar"
+            placeholder="Search employees..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            aria-label="Search employees by any field"
           />
 
           <CustomDataTable

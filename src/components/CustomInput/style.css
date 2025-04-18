@@ -1,0 +1,50 @@
+/* Conteneur du champ input */
+.custom-input-container {
+  display: flex;
+  flex-direction: column;
+}
+  
+/* Label */
+.custom-input-container label {
+  font-weight: 500;
+  margin-bottom: 0.215rem;
+  color: #2d3748;
+  display: block;
+}
+  
+/* Champ input */
+.custom-input-container input {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.95rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  background-color: #f7fafc !important;
+  height: 2.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+  
+/* Focus */
+.custom-input-container input:focus {
+  outline: none;
+  border: 2px solid #1d4ed8;
+  background-color: #ffffff !important;
+}
+  
+/* Correction du fond auto-complété par navigateur */
+.custom-input-container input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #f7fafc inset !important;
+  box-shadow: 0 0 0 1000px #f7fafc inset !important;
+}
+  
+/* Message d'erreur */
+.input-error {
+  color: red;
+  font-size: 0.8rem;
+  font-weight: 600;
+  height: 0.8rem;
+  margin: 3px 0 6px;
+}
+  

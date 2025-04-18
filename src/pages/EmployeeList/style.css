@@ -16,14 +16,14 @@
   }
 }
 
- /* Barre de recherche */
- .search-bar {
+/* Barre de recherche */
+.search-bar {
   width: 100%;
   max-width: 300px;
   margin: 0 auto 1.5rem auto;
   display: block;
   padding: 0.5rem 0.75rem;
-  height: 2.5rem;
+  height: 2rem;
   font-size: 0.95rem;
   border: 1px solid #cbd5e0;
   border-radius: 8px;
@@ -39,7 +39,15 @@
 
 @media screen and (max-width: 600px) {
   .search-bar {
-    max-width: 100%;
+    max-width: 80%;
     font-size: 0.9rem;
   }
+}
+
+/* Message aucun résultat */
+.no-data {
+  text-align: center;
+  font-size: 1rem;
+  color: #4a5568;
+  margin: 2rem 0;
 }

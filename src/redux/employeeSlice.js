@@ -1,3 +1,14 @@
+/**
+ * Slice Redux pour la gestion des employés.
+ *
+ * - Initialise la liste des employés à partir du `localStorage`.
+ * - Fournit l'action `addEmployee` pour ajouter un nouvel employé à la liste.
+ *   Cette action met également à jour le `localStorage` avec les données modifiées.
+ *
+ * @param {object} state - L'état Redux actuel.
+ * @param {object} action - Action contenant l'employé à ajouter (`action.payload`).
+ */
+
 import { createSlice } from '@reduxjs/toolkit';
 
 // Récupère les employés depuis localStorage 

@@ -1,3 +1,11 @@
+/**
+ * Liste des états américains avec leur nom complet et leur abréviation.
+ *
+ * Utilisé pour alimenter les options du menu déroulant dans le formulaire de création d'employé.
+ *
+ * @constant
+ * @type {Array<{name: string, abbreviation: string}>}
+ */
 const states = [
     { name: "Alabama", abbreviation: "AL" },
     { name: "Alaska", abbreviation: "AK" },
