@@ -12,9 +12,9 @@
   width: 1px;
   height: 1px;
   padding: 0;
-  margin: -1px;
+  margin: 0;
   overflow: hidden;
-  clip: rect(0 0 0 0); 
+  clip-path: inset(50%); /*Coupe visuellement l’élément pour le rendre invisible, tout en restant lisible par les lecteurs d’écran - inset() = zone rectangulaire à l’intérieur de l’élément*/
   white-space: nowrap;
   border: 0;
 }
@@ -60,10 +60,10 @@
   .rdt_TableCell:nth-child(2) { min-width: 150px; }
   
   .rdt_TableCol:nth-child(3),
-  .rdt_TableCell:nth-child(3) { min-width: 120px; }
+  .rdt_TableCell:nth-child(3) { min-width: 140px; }
   
   .rdt_TableCol:nth-child(4),
-  .rdt_TableCell:nth-child(4) { min-width: 160px; }
+  .rdt_TableCell:nth-child(4) { min-width: 140px; }
   
   .rdt_TableCol:nth-child(5),
   .rdt_TableCell:nth-child(5) { min-width: 140px; }
@@ -72,13 +72,13 @@
   .rdt_TableCell:nth-child(6) { min-width: 160px; }
   
   .rdt_TableCol:nth-child(7),
-  .rdt_TableCell:nth-child(7) { min-width: 120px; }
+  .rdt_TableCell:nth-child(7) { min-width: 140px; }
   
   .rdt_TableCol:nth-child(8),
-  .rdt_TableCell:nth-child(8) { min-width: 100px; }
+  .rdt_TableCell:nth-child(8) { min-width: 90px; }
   
   .rdt_TableCol:nth-child(9),
-  .rdt_TableCell:nth-child(9) { min-width: 100px; }
+  .rdt_TableCell:nth-child(9) { min-width: 90px; }
   
   /* En-têtes triables au survol */
   .rdt_TableCol:hover {

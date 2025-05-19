@@ -12,6 +12,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 // Récupère les employés depuis localStorage 
+// "JSON.parse" convertit une chaîne de caractères JSON en objet JS manipulable
 const savedEmployees = JSON.parse(localStorage.getItem('employees')) || [];
 
 const employeeSlice = createSlice({
@@ -22,6 +23,7 @@ const employeeSlice = createSlice({
   reducers: {
     addEmployee: (state, action) => {
       state.list.push(action.payload);
+      // "JSON.stringify" => action inverse, on convertit un objet JS en chaîne JSON pour pouvoir le stocker dans localStorage
       localStorage.setItem('employees', JSON.stringify(state.list));
     },
   },

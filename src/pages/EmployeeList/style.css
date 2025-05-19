@@ -16,16 +16,24 @@
   }
 }
 
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto 1.5rem auto;
+  display: flex;
+  justify-content: center;
+}
+
 /* Barre de recherche */
 .search-bar {
   width: 100%;
-  max-width: 300px;
   margin: 0 auto 1.5rem auto;
   display: block;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
   height: 2rem;
   font-size: 0.95rem;
-  border: 1px solid #cbd5e0;
+  border: 2px solid #cbd5e0;
   border-radius: 8px;
   background-color: #f7fafc;
   transition: border-color 0.3s ease;
@@ -41,6 +49,46 @@
   .search-bar {
     max-width: 80%;
     font-size: 0.9rem;
+  }
+}
+
+/* Bouton croix */
+.clear-button {
+  position: absolute;
+  right: 0.7rem;
+  top: 35%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #4a5568;
+  padding: 0;
+  height: 1rem;
+  width: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.clear-button:hover {
+  color: #1d4ed8;
+}
+
+/* Responsive : tout reste dans le champ */
+@media screen and (max-width: 600px) {
+  .search-wrapper {
+    max-width: 80%;
+  }
+
+  .search-bar {
+    font-size: 0.9rem;
+  }
+
+  .clear-button {
+    font-size: 0.95rem;
+    right: 0.5rem;
   }
 }
 

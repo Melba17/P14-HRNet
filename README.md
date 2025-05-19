@@ -36,7 +36,7 @@ L’application sera accessible sur `http://localhost:5173`
 ### Formulaire “Créer un employé”
 
 - Refonte complète du formulaire en React
-- Tous les champs sont gérés avec `useState` et validés manuellement
+- Tous les champs sont contrôlés avec `useState`, et leur validation est entièrement gérée par du code personnalisé (aucune validation automatique du navigateur ou de bibliothèque tierce). Cela permet d’afficher des messages d’erreur sur mesure et de mieux contrôler le comportement du formulaire.
 - Affichage dynamique des erreurs **sans décalage visuel**
 - Composants personnalisés :
   - `CustomDatePicker` (basé sur `react-datepicker`)
@@ -66,21 +66,35 @@ L’affichage de la modal est déclenché via l’état local `showModal`, gér�
 #### Exemple d’utilisation
 
 ```jsx
+import { useState } from 'react'
 import Modal from 'react-custom-modal-publish'
 
-<Modal
-  isOpen={showModal}
-  onClose={() => setShowModal(false)}
-  title="Great news !"
->
-  <p>The new employee has been successfully created.</p>
-</Modal>
+function MyComponent() {
+  const [showModal, setShowModal] = useState(false)
+
+  return (
+    <>
+      <button onClick={() => setShowModal(true)}>
+        Create employee
+      </button>
+
+      <Modal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        title="Great news !"
+      >
+        <p>The new employee has been successfully created.</p>
+      </Modal>
+    </>
+  )
+}
+
 ```
 
 ### Liste des employés (“Employee List”)
 
 - Migration vers `react-data-table-component`
-- Recherche **globale** sur tous les champs, y compris les dates
+- Recherche **globale** sur tous les champs
 - Refonte graphique :
   - Affichage clair
   - **Surlignage des lignes impaires**
@@ -94,7 +108,7 @@ import Modal from 'react-custom-modal-publish'
 
 Le plugin jQuery d’origine proposait une icône permettant de revenir rapidement à la date du jour dans le calendrier.
 
-Cette fonctionnalité n’a pas été jugée essentielle dans le cadre de ce formulaire, où les champs comme la **date de naissance** ou la **date de début de contrat** sont rarement positionnés sur la date actuelle.
+Cette fonctionnalité n’a pas été jugée essentielle pour ce formulaire, car les champs concernés (comme la **date de naissance** ou la **date de début de contrat**) correspondent rarement à la date du jour.
 
 Les utilisateurs peuvent revenir rapidement à l’année ou au mois en cours grâce aux sélecteurs déjà présents.
 
@@ -107,6 +121,26 @@ Cette décision permet de **conserver une interface plus simple et plus légère
 - **Champs vides** : fond gris clair / **focus** : fond blanc
 - **Feedback utilisateur** clair (erreurs, confirmation)
 - **Navigation fluide au clavier**
+
+---
+
+## 📊 Rapport de performance Lighthouse
+
+Des audits de performance ont été réalisés avec [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) afin de comparer la version originale de l’application en **jQuery** et la version convertie en **React**.
+
+- 📄 **Rapport complet (PDF)** et fichiers **JSON** disponibles dans le dossier `/Lighthouse`
+- 🧪 Tests réalisés sur les pages **"Create Employee"** et **"Employee List"**
+- 🔍 Mode : *Navigation* · Appareil : *Ordinateur* · Catégorie : *Performances*
+- ✅ **Résultat** : 100% de performance sur les deux versions
+
+Bien que les scores soient identiques, la version **React** offre des avantages structurels majeurs :
+
+- **Code plus maintenable** (composants, séparation des responsabilités, gestion d’état centralisée)
+- **Accessibilité renforcée** (navigation clavier, ARIA, focus visuel)
+- **Interface plus moderne** (animations)
+- **Plugin jQuery** remplacé par un **composant React publié sur npm**
+
+📌 **Conclusion** : la version React est préférable à long terme pour toute évolution ou industrialisation du projet.
 
 ---
 
