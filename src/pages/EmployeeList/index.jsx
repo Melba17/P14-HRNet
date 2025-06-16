@@ -1,10 +1,19 @@
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setEmployees } from '../../redux/employeeSlice';
 import CustomDataTable from '../../components/CustomDataTable';
 import states from '../../data/states';
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import mockEmployees from '../../data/mock-employees';
+
+// Injection initiale dans localStorage de mockEmployees si vide
+if (!localStorage.getItem('employees')) {
+  localStorage.setItem('employees', JSON.stringify(mockEmployees));
+}
+
 
 // Formatage de la date au format US pour l'affichage dans le tableau
 function formatDateToUS(isoDate) {
@@ -41,8 +50,10 @@ function EmployeeList() {
   const [search, setSearch] = useState('');
   // État secondaire pour gérer un délai (debounce) avant d’effectuer réellement la recherche
   const [debouncedSearch, setDebouncedSearch] = useState('');
+  const dispatch = useDispatch();
 
-  // Attente de 500ms après la dernière frappe de l'utilisateur avant d’effectuer la recherche
+
+  // 1 - Attente de 500ms après la dernière frappe de l'utilisateur avant d’effectuer la recherche
   useEffect(() => {
     // Effet de bord ou comportement asynchrone qui n’est pas purement lié au rendu React
     const timer = setTimeout(() => {
@@ -50,6 +61,14 @@ function EmployeeList() {
     }, 500);
     return () => clearTimeout(timer); // Nettoyage du timer si l’utilisateur continue de taper
   }, [search]);
+
+  // 2. Pour la synchronisation avec localStorage au chargement de la page (chargement de mockemployees)
+  useEffect(() => {
+  const localData = localStorage.getItem('employees');
+  if (localData) {
+    dispatch(setEmployees(JSON.parse(localData)));
+  }
+}, [dispatch]);
 
   // Définition des colonnes du tableau : chaque objet correspond à une colonne
   // Pour les colonnes de date, on garde une vraie Date (new Date) pour le tri, et on affiche un format lisible via `cell`.

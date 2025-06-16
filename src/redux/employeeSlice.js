@@ -26,9 +26,14 @@ const employeeSlice = createSlice({
       // "JSON.stringify" => action inverse, on convertit un objet JS en chaîne JSON pour pouvoir le stocker dans localStorage
       localStorage.setItem('employees', JSON.stringify(state.list));
     },
+
+    // Nouvelle action pour initialiser/synchroniser Redux depuis localStorage
+    setEmployees: (state, action) => {
+      state.list = action.payload;
+    },
   },
 });
 
-export const { addEmployee } = employeeSlice.actions;
+export const { addEmployee, setEmployees } = employeeSlice.actions;
 
 export default employeeSlice.reducer;
