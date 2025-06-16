@@ -27,7 +27,7 @@ const employeeSlice = createSlice({
       localStorage.setItem('employees', JSON.stringify(state.list));
     },
 
-    // Nouvelle action pour initialiser/synchroniser Redux depuis localStorage
+    // Remplace entièrement la liste actuelle d'employés par celle fournie en data (ex: mockEmployees au chargement initial)
     setEmployees: (state, action) => {
       state.list = action.payload;
     },

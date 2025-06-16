@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import mockEmployees from '../../data/mock-employees';
 
-// Injection initiale dans localStorage de mockEmployees si vide
+// Si localStorage est vide, injecte la liste mockEmployees pour initialiser les données
 if (!localStorage.getItem('employees')) {
   localStorage.setItem('employees', JSON.stringify(mockEmployees));
 }
@@ -62,7 +62,7 @@ function EmployeeList() {
     return () => clearTimeout(timer); // Nettoyage du timer si l’utilisateur continue de taper
   }, [search]);
 
-  // 2. Pour la synchronisation avec localStorage au chargement de la page (chargement de mockemployees)
+  // 2. Synchronise Redux avec le contenu de localStorage (mockEmployees injecté si nécessaire)
   useEffect(() => {
   const localData = localStorage.getItem('employees');
   if (localData) {
