@@ -6,6 +6,31 @@ L’objectif : rendre l’application **plus rapide**, **plus stable**, **plus m
 
 ---
 
+## 🎨 Avant / Après : refonte de l'interface
+
+Voici un comparatif visuel entre l’ancienne version de l’application (basée sur jQuery) et la nouvelle version (React + composants modernes) :
+
+### 🧾 Formulaire “Créer un employé”
+
+| Avant (jQuery) | Après (React) |
+|----------------|---------------|
+| ![Avant - Formulaire](./screenshots/create-before.png) | ![Après - Formulaire](./screenshots/create-after.png) |
+
+### 📋 Liste des employés
+
+| Avant (jQuery) | Après (React) |
+|----------------|---------------|
+| ![Avant - Liste](./screenshots/list-before.png) | ![Après - Liste](./screenshots/list-after.png) |
+
+---
+
+### 🔍 Remarques
+
+- Le **formulaire** a été modernisé avec des composants contrôlés, une meilleure hiérarchie visuelle et une expérience utilisateur améliorée (*focus*, validation, accessibilité).
+- La **table** a été remplacée par un composant React performant avec recherche, tri, pagination et styles harmonisés.
+
+---
+
 ## ▶️ Installation & lancement
 
 ### 1. Cloner le projet
